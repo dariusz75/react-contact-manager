@@ -12,7 +12,10 @@ class Contact extends Component {
   render() {
     return (
       <div className="card card-body mb-3">
-        <h4>{this.props.name} <i className="fas fa-sort-down" onClick={this.onShowClick}></i></h4>
+        <h4>{this.props.name}
+          <i className="fas fa-sort-down" style={{ cursor: 'pointer' }} onClick={this.onShowClick}></i>
+          <i className="fas fa-times" style={{ cursor: 'pointer', float: 'right', color: 'red' }} ></i>
+        </h4>
         {this.state.showContactInfo ? (<ul className="list-group">
           <li className="list-group-item">{this.props.email}</li>
           <li className="list-group-item">{this.props.phone}</li>
