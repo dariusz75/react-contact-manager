@@ -24,13 +24,23 @@ class Contacts extends Component {
         phone: '07712346696'
       }
     ]
+  };
 
-  }
+  deleteContact = (id) => {
+    const newContacts = this.state.contacts.filter(contact => contact.id !== id);
+
+    this.setState({
+      contacts: newContacts
+    })
+  };
+
+
+
   render() {
     return (
       <div>
-        {this.state.contacts.map(function (contact) {
-          return <Contact key={contact.id} name={contact.name} email={contact.email} phone={contact.phone} />
+        {this.state.contacts.map(contact => {
+          return <Contact key={contact.id} name={contact.name} email={contact.email} phone={contact.phone} deleteClickHandler={this.deleteContact.bind(this, contact.id)} />
         })}
       </div>
     )
